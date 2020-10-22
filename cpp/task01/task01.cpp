@@ -10,8 +10,9 @@ int main(int c, char** argv)
  
     float* audio_buffer;
     int buffer_len;
-    int sample_rate;
+    int sample_rate = 44100;
     int n_channels;
+    int current_position = 0;
 
     if (c!=2)
     {
@@ -27,10 +28,16 @@ int main(int c, char** argv)
     float* left = (float*) malloc(buffer_len/2*sizeof(float));
 
     cout << "copying stereo into two mono..." << endl;
+    
     for (int i=0; i<buffer_len; i+=2)
     {
-        // TODO
+        left[current_position] = audio_buffer[i];
+        right[current_position] = audio_buffer[i+1];
+        current_position++;
     }
+
+    write_wave_file("./example_left.wav", left, buffer_len/2, sample_rate);
+    write_wave_file("./example_right.wav", right, buffer_len/2, sample_rate);
 
     cout << "done." << endl;
     return 0;

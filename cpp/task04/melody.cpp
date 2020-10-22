@@ -83,24 +83,40 @@ class MusicNote
 
 int main(int c, char** argv)
 {
-    const float duration = 3.5; //seconds
+    const float duration = 10; //seconds
     const float Fs = 44100; //sample rate (samples /second)
     const int buffer_len = round(duration*Fs); // samples
     float *audio_buffer;
     vector<MusicNote> notes;
 
     //===============================
-    SineOscillator* s1 = new SineOscillator(60, 0.5, Fs);
-    MusicNote m1(s1, 0.0f, 5.0f);
+    SineOscillator* s1 = new SineOscillator(62, 0.5, Fs);
+    MusicNote m1(s1, 0.0f, 2.0f);
     notes.push_back(m1);
 
-    SineOscillator* s2 = new SineOscillator(67, 0.5, Fs);
-    MusicNote m2(s2, 2.0f, 7.0f);
+    SineOscillator* s2 = new SineOscillator(67-12, 0.5, Fs);
+    MusicNote m2(s2, 2.0f, 3.0f);
     notes.push_back(m2);
 
-    SineOscillator* s3 = new SineOscillator(69, 0.5, Fs);
-    MusicNote m3(s3, 6.0f, 8.0f);
+    SineOscillator* s3 = new SineOscillator(60, 0.5, Fs);
+    MusicNote m3(s3, 3.0f, 5.0f);
     notes.push_back(m3);
+
+    SineOscillator* s4 = new SineOscillator(65-12, 0.5, Fs);
+    MusicNote m4(s4, 5.0f, 6.0f);
+    notes.push_back(m4);
+
+    SineOscillator* s5 = new SineOscillator(67-12, 0.5, Fs);
+    MusicNote m5(s5, 6.0f, 7.0f);
+    notes.push_back(m5);
+
+    SineOscillator* s6 = new SineOscillator(62, 0.5, Fs);
+    MusicNote m6(s6, 7.0f, 8.0f);
+    notes.push_back(m6);
+
+    SineOscillator* s7 = new SineOscillator(60, 0.5, Fs);
+    MusicNote m7(s7, 8.0f, 10.0f);
+    notes.push_back(m7);
 
 
     //===============================
